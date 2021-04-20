@@ -124,7 +124,7 @@ export default{
             stock_category_id:"10275",
             uom:"BAG",
             barcode:null,
-            discontinued:"Y",
+            discontinued:null,
         });
 
         const submit = () => {
