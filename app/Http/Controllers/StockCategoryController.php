@@ -39,7 +39,24 @@ class StockCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate(
+            [
+                'id'=>'required|unique:stock_categories|numeric',
+                'description'=>'required',
+                'type'=>'required',
+                'stock_account'=>'nullable',
+            ]
+            );
+
+            $model = new StockCategory();
+            $model->id = $request->id;
+            $model->description = $request->description;
+            $model->type = $request->type;
+            $model->stock_account = $request->stock_account;
+
+            $model->save();
+
+            return redirect()->back()->with('success', 'Stock Category created.');
     }
 
     /**
